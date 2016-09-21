@@ -7,15 +7,14 @@ app = Flask(__name__)
 def route1():
 	return "this is the first route. check out /two or /three."
 
-
 @app.route("/two")
 
-def route1():
+def route2():
 	return "this is the second route."
 
 @app.route("/three")
 
-def route1():
+def route3():
 	return "this is the third route"
 
 if __name__ == "__main__":
