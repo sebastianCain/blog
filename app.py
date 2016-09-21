@@ -5,7 +5,7 @@ app = Flask(__name__)
 @app.route("/")
 
 def route1():
-	return "this is the first route. check out /two or /three."
+	return render_template("index.html", title = "lmaoaml")
 
 @app.route("/two")
 
@@ -18,4 +18,5 @@ def route3():
 	return "this is the third route"
 
 if __name__ == "__main__":
-	app.run()
+    app.debug = True
+    app.run()
