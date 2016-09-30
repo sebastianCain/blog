@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet"></link>
-    <link type="text/css" href="style.css" rel="stylesheet"></link>
-  </head>
   <body>
-    <h1> {{title}} </h1>
+    <form action="/auth" method='POST'>
+      Username: <input type="text" name="user"><br>
+      Password: <input type="text" name="pass"><br>
+      <input type="submit" value="Submit">
+    </form>
   </body>
 </html>
