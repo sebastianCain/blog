@@ -18,7 +18,7 @@ def login():
 def route2():
     print request.method
     
-    occu = open("auth.csv", "r")
+    occu = open("data/auth.csv", "r")
     streamy = occu.read()
     
     data = streamy.strip().split("\n")
@@ -39,7 +39,7 @@ def route3():
 @app.route("/registerauth", methods=['GET', 'POST'])
 
 def route4():
-    occu = open("auth.csv", "a")
+    occu = open("data/auth.csv", "a")
     hashobject = hashlib.sha256(request.form["pass"])
     hexdig = hashobject.hexdigest()
     occu.write(request.form["user"] + "," + hexdig + "\n")
