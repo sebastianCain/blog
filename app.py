@@ -1,12 +1,22 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for, session
 import hashlib
 
 app = Flask(__name__)
 
+app.secret_key = "mwebfailusgdfaiweflauksbdflakjbsdfiquwe"
+
 @app.route("/")
 
 def route1():
+    if "user" in session:
+        return render_template("welcome.html", name= session["user"])
     return render_template("index.html")
+
+@app.route("/logout")
+
+def logout():
+    session.pop("user")
+    return redirect("/")
 
 @app.route("/login", methods=['GET', 'POST'])
 
@@ -28,7 +38,8 @@ def route2():
         hashobject = hashlib.sha256(request.form["pass"])
         hexdig = hashobject.hexdigest()
         if user == line[0] and hexdig == line[1]:
-            return "login successful"
+            session["user"] = user
+            return "login successful <a href='/'>back home</a>"
     return "login unsuccessful. <a href='/login'>try again</a>"
 
 @app.route("/register", methods=['GET', 'POST'])
