@@ -5,6 +5,12 @@
     method == either POST or GET
 -->
 
+<!-- HTML form keys -->
+<!--
+    usr == username
+    pw == password
+-->
+
 <!DOCTYPE html>
 <html>
 <title> {{title}} </title>
@@ -14,8 +20,11 @@
 
 <body>
 <form action = {{path}} method = {{method}}>
-
-
+Username: <input type="text" name="usr">
+<br><br>
+Password: <input type="text" name="pw">
+<br><br>
+<input type="submit" name="Log In">
 </form>
 </body>
 </center>
