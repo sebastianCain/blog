@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
+import sqlite3
+import "auth/auth"
 import hashlib
 
 app = Flask(__name__)
@@ -26,19 +28,13 @@ def login():
 @app.route("/loginauth", methods=['GET', 'POST'])
 
 def route2():
-    print request.method
+    #print request.method
+
+    line = i.split(",")
+    user = request.form["user"]
+    passwd = request.form["pass"]
     
-    occu = open("data/auth.csv", "r")
-    streamy = occu.read()
-    
-    data = streamy.strip().split("\n")
-    for i in data:
-        line = i.split(",")
-        user = request.form["user"]
-        hashobject = hashlib.sha256(request.form["pass"])
-        hexdig = hashobject.hexdigest()
-        if user == line[0] and hexdig == line[1]:
-            session["user"] = user
+    if authenticate(user, passwd):
             return "login successful <a href='/'>back home</a>"
     return "login unsuccessful. <a href='/login'>try again</a>"
 
