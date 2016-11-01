@@ -1,4 +1,6 @@
+from flask import session
 import hashlib, sqlite3
+
 
 def hashy(word):
     myHashObject = hashlib.sha256()
@@ -40,4 +42,18 @@ def addUser(username,password):
     db.commit()
     db.close()
     return "User successfully registered!"
+
+
+def userCooked(user):
+    f = "data/story.db"
+    db = sqlite3.connect(f)
+    c = db.cursor()
+    a = c.execute("SELECT username FROM users")    
+    for row in a:
+        if session and row and user == row[0]:
+            return True
+    return False
+
+
+
 
