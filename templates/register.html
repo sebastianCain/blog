@@ -1,9 +1,24 @@
+<!-- HTML form keys -->
+<!--
+    user == username
+    pass == password
+-->
+
+<!DOCTYPE html>
 <html>
-  <body>
-    <form action="/registerauth" method="post">
-      Username: <input type="text" name="user"><br>
-      Password: <input type="password" name="pass"><br>
-      <input type="submit" value="Register">
-    </form>
-  </body>
+  <title> Register </title>
+
+  <center>
+    <h1> Register </h1>
+
+    <body>
+      <form action="/registerauth" method="post">
+	Username: <input type="text" name="user">
+	<br><br>
+	Password: <input type="text" name="pass">
+	<br><br>
+	<input type="submit" name="Register">
+      </form>
+    </body>
+  </center>
 </html>
