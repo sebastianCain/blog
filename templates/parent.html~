@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-{% extends "parent.html" %}
-<!-- create different panels -->
+
 
 <style>
 
@@ -53,32 +52,8 @@ tr.content:nth-child(even){ background-color: #bfbfbf }
 
 </style>
 
-<title> Home </title>
+<div class="user">
+{% block user %}{% endblock %}
+</div>
 
-{% block user %}
-User Info Display
-<table class="user">
-  <tr>
-    <td class="user" width="30%"> Username </td>
-    <td class="user"> ... </td>
-  </tr>
-</table>
-{% endblock %}
-
-{% block content %}
-<!--
-<table class="content">
-  <tr class="content">
-    <td class="content" width="80%">Story1 goes HERE </td>
-    <td class="content"> Contributor1 HERE </td>
-  </tr>
-  <tr class="content">
-    <td class="content" width="80%">Story2 goes HERE </td>
-    <td class="content"> Contributor2 HERE </td>
-  </tr>
-</table>
--->
-{% block story %} Some story {% endblock %}
-{% block author %} Contributor {% endblock %}
-{% endblock %}
 </html>
