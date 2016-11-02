@@ -31,17 +31,17 @@ def addUser(username,password):
     c = db.cursor()
     if password == "" or username == "":
         db.close()
-        return "Registration invalid!"
+        return 0
     c.execute("SELECT username FROM users WHERE username = %s" % (username))
     a = c.fetchall()
     if len(a) > 0:
         db.close()
-        return "User already registered!"
+        return 1
     q = "INSERT INTO users VALUES (\"%s\", \"%s\",\"\")" % (username,hashy(password))
     c.execute(q)
     db.commit()
     db.close()
-    return "User successfully registered!"
+    return 2
 
 
 def userCooked(user):
