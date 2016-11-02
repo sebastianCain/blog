@@ -10,10 +10,15 @@ Sebastian Cain
       -Created a template for the Flask app
       -Modified app.py to include SQL auth, import utils
 
+Yuki Chen
+     -Create basic structure for login and register html files
+
 ##11/01/16
 
 Billy Wong
       -Added the add new story feature
 
+Yuki Chen
+     -Create basic structure for home html with css
 
 ##11/02/16
