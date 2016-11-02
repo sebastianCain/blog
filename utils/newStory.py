@@ -10,7 +10,7 @@ def addStory(user,name,text):
     for num in a:
         if num[0] > bId:
             bId = num[0]
-    print (bId)
+    bId += 1
     q = "INSERT INTO updates VALUES (%d, \"%s\", %d, \"%s\")" % (bId, user, 0, text)
     print (q)
     c.execute(q)
