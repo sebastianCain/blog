@@ -10,9 +10,8 @@ def addStory(user,name,text):
     for num in a:
         if num[0] > bId:
             bId = num[0]
-    bId += 1
+    bId += 1 #STORY IDS START AT 1, 0 IS A PLACEHOLDER
     q = "INSERT INTO updates VALUES (%d, \"%s\", %d, \"%s\")" % (bId, user, 0, text)
-    print (q)
     c.execute(q)
     db.commit()
     db.close()

@@ -5,5 +5,13 @@ name = "OH LOL"
 text = "fun fun fun fun. oh what fun"
 
 newStory.addStory(user,name,text)
-addUpdate.newUpdate(0,user,text)
+
+text = "New moon.w hat the time"
+
+addUpdate.newUpdate(1,user,text)
+
+text = "asdfghjkl"
+user = "456"
+
+addUpdate.newUpdate(1,user,text)
 
