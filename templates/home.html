@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<!-- create different panels -->
+
+<style>
+
+div.user {
+    position: fixed;
+    top: 5%;
+    left: 0;
+    background: lightblue;
+    width: 20%;
+    border: 2px solid;
+    border-color: #4da6ff;
+    padding: 1%;
+}
+
+table.user {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+
+td.user {
+    border: 2px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+div.content {
+    position: fixed;
+    width: 70%;
+    background: #e6e6e6;
+    padding: 15px;
+    top: 5%;
+    left: 25%;
+}
+
+table.content {
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td.content {
+    text-align: center;
+    padding: 10px;
+}
+
+tr.content:nth-child(even){ background-color: #bfbfbf }
+
+</style>
+
+<title> Home </title>
+
+<div class="user">
+User Info Display
+<table class="user">
+  <tr>
+    <td class="user" width="30%"> Username </td>
+    <td class="user"> ... </td>
+  </tr>
+</table>
+</div>
+
+<div class="content">
+<table class="content">
+  <tr class="content">
+    <td class="content" width="80%">Story1 goes HERE </td>
+    <td class="content"> Contributor1 HERE </td>
+  </tr>
+  <tr class="content">
+    <td class="content" width="80%">Story2 goes HERE </td>
+    <td class="content"> Contributor2 HERE </td>
+  </tr>
+</table>
+</div>
+</html>
