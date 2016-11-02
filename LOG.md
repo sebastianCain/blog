@@ -22,3 +22,7 @@ Yuki Chen
      -Create basic structure for home html with css
 
 ##11/02/16
+
+Billy Wong
+      -Started work on adding new updates
+      -Fixed error in new story ids
