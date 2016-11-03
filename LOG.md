@@ -18,6 +18,9 @@ Yuki Chen
 Billy Wong
       -Added the add new story feature
 
+Sebastian Cain
+      -Created paths for sitemap in app.py
+
 Yuki Chen
      -Create basic structure for home html with css
 
@@ -27,10 +30,14 @@ Billy Wong
       -Started work on adding new updates
       -Fixed error in new story ids
 
-
+Sebastian Cain
+      -Customized paths to send parameters
 
 ##11/03/16
 
 Billy Wong
       -Enhanced newStory.py to add to openedPages
       -Finished basic functionality of addNewUpdate.py
+
+Sebastian Cain
+      -Created posts.py to grab posts from SQL and insert into template
