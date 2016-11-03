@@ -26,3 +26,11 @@ Yuki Chen
 Billy Wong
       -Started work on adding new updates
       -Fixed error in new story ids
+
+
+
+##11/03/16
+
+Billy Wong
+      -Enhanced newStory.py to add to openedPages
+      -Finished basic functionality of addNewUpdate.py

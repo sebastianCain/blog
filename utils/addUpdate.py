@@ -4,6 +4,9 @@ import sqlite3
 #need to check if user has already contributed
 
 def newUpdate(sId,user,text):
+    if len(text) > 550:
+        return False
+    
     #SETUP
     f = "data/story.db"
     db = sqlite3.connect(f)

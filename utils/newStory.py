@@ -10,8 +10,10 @@ def addStory(user,name,text):
     for num in a:
         if num[0] > bId:
             bId = num[0]
-    bId += 1 #STORY IDS START AT 1, 0 IS A PLACEHOLDER
-    q = "INSERT INTO updates VALUES (%d, \"%s\", %d, \"%s\")" % (bId, user, 0, text)
+    #bId + 1 is the id of the story
+    q = "INSERT INTO updates VALUES (%d, \"%s\", %d, \"%s\")" % (bId+1, user, 0, text)
+    c.execute(q)
+    q = "INSERT INTO openedPages (%d, \"%s\", %r)" % (bId+1,story,False)
     c.execute(q)
     db.commit()
     db.close()
