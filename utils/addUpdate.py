@@ -11,7 +11,7 @@ def newUpdate(sId,user,text):
     f = "data/story.db"
     db = sqlite3.connect(f)
     c = db.cursor()
-
+    
     #CHECK IF USER HAS CONTRIBUTED
     q = "SELECT storyID from updates WHERE storyID=%d AND username=\"%s\"" % (sId,user)
     c.execute(q)

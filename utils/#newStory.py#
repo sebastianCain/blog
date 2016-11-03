@@ -5,12 +5,6 @@ def addStory(user,name,text):
     f = "data/story.db"
     db = sqlite3.connect(f)
     c = db.cursor()
-
-    q = "SELECT storyName from openedPages WHERE storyName=\"%s\"" % (name)
-    c.execute(q)
-    x = c.fetchall()
-    if len(x) > 0:
-        return False   #NO DUPLICATE TITLES
     
     a = c.execute("SELECT storyID FROM updates")
     bId = 0
@@ -25,5 +19,3 @@ def addStory(user,name,text):
     db.commit()
     db.close()
     return True
-
-
