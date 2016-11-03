@@ -18,3 +18,5 @@ def addStory(user,name,text):
     db.commit()
     db.close()
     return True
+
+
