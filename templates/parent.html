@@ -52,21 +52,15 @@ tr.content:nth-child(even){ background-color: #bfbfbf }
 
 </style>
 
+<a href={{ profile }}>
 <div class="user">
-{% block user %}{% endblock %}
+{% block user %}
+{% endblock %}
 </div>
+</a>
 
 <div class="content">
-{% block content %}{% endblock %}
-
-<table class="content">
-  {% block mainTable %}
-  <tr class="content">
-    <td class="content" width="80%">{% block story %}{% endblock %}</td>
-    <td class="content"> {% block author %}{% endblock %} </td>
-  </tr>
-  {% endblock %}
-</table>
-
+{% block content %}
+{% endblock %}
 </div>
 </html>
