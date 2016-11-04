@@ -2,9 +2,19 @@
 <!DOCTYPE html>
 <html>
 {% extends "parent.html" %}
-<!-- create different panels -->
 
 <style>
+
+div.user {
+    position: fixed;
+    top: 5%;
+    left: 0;
+    background: lightblue;
+    width: 20%;
+    border: 2px solid;
+    border-color: #4da6ff;
+    padding: 1%;
+}
 
 table.user {
     width: 90%;
@@ -17,6 +27,16 @@ td.user {
     border: 2px solid black;
     padding: 10px;
     text-align: center;
+}
+
+
+div.content {
+    position: fixed;
+    width: 70%;
+    background: #e6e6e6;
+    padding: 15px;
+    top: 5%;
+    left: 25%;
 }
 
 table.content {
@@ -32,8 +52,8 @@ td.content {
 
 tr.content:nth-child(even){ background-color: #bfbfbf }
 
-</style>
 
+</style>
 <title> Home </title>
 
 {% block user %}
@@ -45,14 +65,19 @@ tr.content:nth-child(even){ background-color: #bfbfbf }
 </table>
 {% endblock %}
 
+
 {% block content %}
 <table class="content">
+  {% for row in data %}
   <tr class="content">
     <td class="content"> 
-      {% block title %}{{t}}{% endblock %}
-      {% block story %}{{s}}{% endblock %}
+      <h2>{{ row[0] }}</h2>
+    </td>
+    <td class="content">
+      {{ row[1] }}
     </td>
   </tr>
+  {% endfor %}
 </table>
 {% endblock %}
 
