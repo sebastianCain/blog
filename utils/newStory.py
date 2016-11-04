@@ -6,10 +6,14 @@ def addStory(user,name,text):
     db = sqlite3.connect(f)
     c = db.cursor()
 
+    #print("adding story..")
+    
     q = "SELECT storyName from openedPages WHERE storyName=\"%s\"" % (name)
     c.execute(q)
     x = c.fetchall()
+    #print(x)
     if len(x) > 0:
+        #print("already there")
         return False   #NO DUPLICATE TITLES
     
     a = c.execute("SELECT storyID FROM updates")
@@ -18,9 +22,10 @@ def addStory(user,name,text):
         if num[0] > bId:
             bId = num[0]
     #bId + 1 is the id of the story
-    q = "INSERT INTO updates VALUES (%d, \"%s\", %d, \"%s\")" % (bId+1, user, 0, text)
+    q = "INSERT INTO updates VALUES (%d, \"%s\", %d, \"%s\");" % (bId+1, user, 0, text)
+    #print(q)
     c.execute(q)
-    q = "INSERT INTO openedPages (%d, \"%s\", %r)" % (bId+1,story,False)
+    q = "INSERT INTO openedPages VALUES (%d, \"%s\", %r);" % (bId+1, name, 0)
     c.execute(q)
     db.commit()
     db.close()

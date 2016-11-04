@@ -9,8 +9,8 @@ app.secret_key = os.urandom(32)
 
 def root():
     if auth.userCooked(session["user"]):
-        return redirect("/feed") #change to home.html
-    return redirect("/login")
+        return render_template("welcome.html") #change to home.html
+    return render_template("login.html")
 
 #--------------------------------
 @app.route("/logout")
@@ -56,7 +56,8 @@ if __name__ == "__main__":
 @app.route("/feed")
 
 def feed():
-    return render_template("feed.html")
+    data = getFeed(session["user"]
+    return render_template("feed.html", data)
 
 #------------------------------------------
 @app.route("/contributed")
@@ -72,7 +73,13 @@ def viewstory():
     return render_template("viewstory.html")
 
 #------------------------------------------
-@app.route("/updatestory")
+@app.route("newstory")
+
+def newstory():
+    return render_template("newstory.html")
+
+#------------------------------------------
+@app.route("updatestory")
 
 def updatestory():
     return render_template("updatestory.html")

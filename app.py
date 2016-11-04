@@ -29,7 +29,7 @@ def login():
     
     if auth.authenticate(user, passwd):
         session["user"] = user
-        return redirect("/")
+        return redirect("/feed")
     return redirect("/") #something to show the failure maybe but it shows login
 
 #-----------------------------------------

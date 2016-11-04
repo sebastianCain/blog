@@ -1,12 +1,25 @@
-from utils import newStory, auth, addUpdate
+from utils import newStory, auth, addUpdate, posts
 
-user = "123"
-name = "OH LOL"
-text = "fun fun fun fun. oh what fun"
+user = "user1"
+title = "title1"
+text = "text1 lkajsbfklajsbfajklsdbfksdjkbfaklsjbfaskjbflajbfklajsbfasjklbfa"
 
-newStory.addStory(user,name,text)
-newStory.addStory(user,name,text)
-newStory.addStory(user,name,text)
+newStory.addStory(user,title,text)
+
+
+user = "user1"
+title = "title2"
+text = "text2 akljsdbfakljsdbfakljsdbfaklsjdbfakljsdbfakljsdbfaklsjbfasdfasd"
+
+newStory.addStory(user,title,text)
+
+user = "user2"
+title = "title3"
+text = "text3 klajsfakljsdbfakljsdbfakljsdbfklajdsdbfaklsjdbfaskldbfasjkldbf"
+
+newStory.addStory(user,title,text)
+
+posts.getFeed("user1")
 '''
 text = "New moon.w hat the time"
 

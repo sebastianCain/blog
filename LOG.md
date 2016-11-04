@@ -41,3 +41,8 @@ Billy Wong
 
 Sebastian Cain
       -Created posts.py to grab posts from SQL and insert into template
+
+##11/04/16
+
+Sebastian Cain
+      -Continued working on posts.py

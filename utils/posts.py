@@ -4,9 +4,13 @@ def getFeed(username):
     db = sqlite3.connect("data/story.db")
     cursor = db.cursor()
 
-    query = "SELECT storyID FROM updates WHERE username!=\"" + name + "\""
+    query = "SELECT * FROM updates WHERE username!=\"" + username + "\""
 
     cursor.execute(query)
     fetch = cursor.fetchall()
 
-    print(fetch)
+    dict = {}
+    
+    for i in fetch:
+        print(fetch)
+
