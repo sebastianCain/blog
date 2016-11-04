@@ -12,7 +12,8 @@ def home():
     story=request.form["story"]
     title=request.form["title"]
     print story + ", " + title
-    return render_template("home.html",s=story, t=title)
+    d=[["title1","content1"],["title2","content2"]]
+    return render_template("home.html",data=d)
 
 if __name__ == "__main__":
     runHtml.debug = True
