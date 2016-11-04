@@ -1,0 +1,5 @@
+<!DOCTYPE html>
+{% extends parent.html %}
+<html>
+
+</html>

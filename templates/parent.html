@@ -61,6 +61,10 @@ tr.content:nth-child(even){ background-color: #bfbfbf }
 
 <div class="content">
 {% block content %}
+{% block title %}<h2></h2>{% endblock %}
+<br>
+{% block story %}{% endblock %}
 {% endblock %}
 </div>
+
 </html>

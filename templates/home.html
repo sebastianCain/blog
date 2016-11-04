@@ -47,11 +47,12 @@ tr.content:nth-child(even){ background-color: #bfbfbf }
 
 {% block content %}
 <table class="content">
-{% for story in data -%}
   <tr class="content">
-    <td class="content"> {{ story["title"] }}</td>
+    <td class="content"> 
+      {% block title %}{{t}}{% endblock %}
+      {% block story %}{{s}}{% endblock %}
+    </td>
   </tr>
-{%- endfor %}
 </table>
 {% endblock %}
 
