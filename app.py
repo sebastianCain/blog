@@ -71,9 +71,20 @@ def viewstory():
 
 #------------------------------------------
 @app.route("/newstory")
-
 def newstory():
     return render_template("newstory.html")
+
+#------------------------------------------
+@app.route("/createstory")
+
+def createstory():
+    u = session["user"]
+    n = request.form["title"]
+    t = request.form["story"]
+    result = newStory.addStory(u,n,t)
+    if !result:
+        return redirect("/newstory")
+    return redirect("/feed")
 
 #------------------------------------------
 @app.route("/updatestory")
