@@ -56,7 +56,8 @@ if __name__ == "__main__":
 @app.route("/feed")
 
 def feed():
-    return render_template("feed.html")
+    data = posts.getFeedData(session["user"])
+    return render_template("feed.html", data)
 
 #------------------------------------------
 @app.route("/contributed")

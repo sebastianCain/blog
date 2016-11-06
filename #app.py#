@@ -56,14 +56,15 @@ if __name__ == "__main__":
 @app.route("/feed")
 
 def feed():
-    data = getFeed(session["user"]
+    data = posts.getFeedData(session["user"])
     return render_template("feed.html", data)
 
 #------------------------------------------
 @app.route("/contributed")
 
 def contributed():
-    return render_template("contributed.html")
+    data = getContributedData(session["user"])
+    return render_template("contributed.html", data)
 
 #------------------------------------------
 @app.route("/viewstory")
