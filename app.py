@@ -63,7 +63,8 @@ def feed():
 @app.route("/contributed")
 
 def contributed():
-    return render_template("contributed.html")
+    data = getContributedData(session["user"])
+    return render_template("contributed.html", data)
 
 #------------------------------------------
 @app.route("/viewstory")
