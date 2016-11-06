@@ -97,10 +97,9 @@ input.new {
     </td>
   </tr>
   <tr>
-    <td class="user"> Log Out </td>
-    <td class="user">
-      <form action="/logout"><input type="submit" value="Logout"></form>
-    </td>
+    <td colspan="2"><form action="/logout" method="POST">
+	<input type="submit" value="Logout">
+    </form></td>
   </tr>
 </table>
 </div>
@@ -112,7 +111,8 @@ input.new {
   <tr class="content">
     <td class="content" width="30%"> 
       <h2>{{ dic["title"] }}</h2>
-      <form type="hidden" action="/viewstory" value={{ dic["storyID"] }}>
+      <form action="/viewstory" method="POST">
+	<input type="hidden" name="SID" value={{dic["storyID"]}}>
 	<input type="submit" class="view" value="View">
       </form>
     </td>
