@@ -6,10 +6,14 @@ def getFeedData(username):
     db = sqlite3.connect("data/story.db")
     cursor = db.cursor()
     
-    query = "SELECT * FROM updates"
+    query = "SELECT * FROM updates "
     contributedIDs = getContributedIDs(username)
     
     isFirst = True
+    
+    if contributedIDs:
+        query += "WHERE"
+    
     for i in contributedIDs:
         if isFirst == False:
             query += " AND"
@@ -69,6 +73,9 @@ def getContributedIDs(username):
 
 
 def getContributedData(username):
+
+    db = sqlite3.connect("data/story.db")
+    cursor = db.cursor()
     
     query = "SELECT * FROM updates WHERE"
     contributedIDs = getContributedIDs(username)
@@ -114,3 +121,35 @@ def getContributedData(username):
         data.append({"storyID": storyID, "title": fetch[0][0], "text": text})
 
     return data
+
+
+
+def getStoryInfo(id):
+
+    db = sqlite3.connect("data/story.db")
+    cursor = db.cursor()
+    
+    data = []
+
+    cursor.execute("SELECT text,username from updates WHERE storyID=%d" % (id))
+    updates = cursor.fetchall()
+
+    text = updates[len(updates)-1][0]
+
+    canUpdate = True
+
+    for update in updates:
+        if update[1] = session["user"]:
+            canUpdate = False
+        
+    cursor.execute("SELECT title,isOpen from stories WHERE storyID=%d" % (id))
+    t = cursor.fetchone()
+
+    title = t[0]
+
+    data.append(title)
+    data.append(text)
+    data.append(canUpdate) 
+
+    return data
+    

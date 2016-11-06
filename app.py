@@ -14,7 +14,7 @@ def root():
     return render_template("login.html")
 
 #--------------------------------
-@app.route("/logout")
+@app.route("/logout", methods=['POST'])
 
 def logout():
     session.pop("user")
@@ -58,18 +58,22 @@ def feed():
     #return render_template("home.html", data=data, user=session["user"])
 
 #------------------------------------------
-@app.route("/contributed")
+@app.route("/contributed", methods=['POST'])
 
+
+#WRONG TEMPLATE ROUTE
 def contributed():
-    data = getContributedData(session["user"])
-    return render_template("contributed.html", data=data)
+    data = posts.getContributedData(session["user"])
+    return render_template("display.html", data=data)
 
 #------------------------------------------
-@app.route("/viewstory")
+@app.route("/viewstory", methods=['POST'])
 
 def viewstory():
     #grab data (title, text) here to enter into template as arg
-    return render_template("viewstory.html")
+    sid = request.form["SID"]
+    data = posts.getStoryInfo(sid)
+    return render_template("viewstory.html",data=data)
 
 #------------------------------------------
 @app.route("/newstory")
@@ -77,7 +81,7 @@ def newstory():
     return render_template("newstory.html")
 
 #------------------------------------------
-@app.route("/createstory")
+@app.route("/createstory",methods=['POST'])
 
 def createstory():
     u = session["user"]
