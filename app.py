@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import sqlite3, hashlib, os
-from utils import auth
+from utils import auth, newStory, addUpdate, posts
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
 
