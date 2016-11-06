@@ -8,8 +8,8 @@ app.secret_key = os.urandom(32)
 @app.route("/")
 
 def root():
-    if auth.userCooked(session["user"]):
-        return render_template("welcome.html") #change to home.html
+    if session and auth.userCooked(session["user"]):
+        return render_template("home.html") #change to home.html
     return render_template("login.html")
 
 #--------------------------------
@@ -57,7 +57,7 @@ if __name__ == "__main__":
 
 def feed():
     data = posts.getFeedData(session["user"])
-    return render_template("feed.html", data)
+    return render_template("home.html", data)
 
 #------------------------------------------
 @app.route("/contributed")
