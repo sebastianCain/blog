@@ -51,8 +51,32 @@ td.content {
     padding: 10px;
 }
 
-tr.content:nth-child(even){ background-color: #bfbfbf }
+tr.content:nth-child(even){ 
+    background-color: #bfbfbf; 
+}
 
+input.view {
+    color: white;
+    background-color: black;
+    font-size: 13pt;
+    padding: 5px;
+}
+
+div.new {
+    position: fixed;
+    bottom: 15%;
+    left: 5%;
+}
+
+input.new {
+    width: 100px;
+    height: 80px;
+    color: white;
+    font-size: 13pt;
+    background-color: #009900;
+    border: 3px solid #ccffcc;
+    padding:2px;
+}
 
 </style>
 
@@ -82,9 +106,8 @@ tr.content:nth-child(even){ background-color: #bfbfbf }
   <tr class="content">
     <td class="content" width="30%"> 
       <h2>{{ dic["title"] }}</h2>
-      <br>
       <form type="hidden" action="/viewstory" value={{ dic["storyID"] }}>
-	<input type="submit" value="View">
+	<input type="submit" class="view" value="View">
       </form>
     </td>
     <td class="content">
@@ -93,6 +116,12 @@ tr.content:nth-child(even){ background-color: #bfbfbf }
   </tr>
   {% endfor %}
 </table>
+</div>
+
+<div class="new">
+  <form action="/newstory">
+    <input type="submit" class="new" value="Write New">
+  </form>
 </div>
 
 </html>

@@ -8,17 +8,19 @@ runHtml.secret_key = os.urandom(32)
 
 data=[]
 for x in range(0,20):
-    dict={'title': x, 'text':"something"+str(x), 'storyID':x}
+    dict={'contributor': x, 'update':"update"+str(x), 'storyID':x}
     data.append(dict)
-    print dict
 
 #----------------------------------
 @runHtml.route("/")
 
 def root():
-    if session and auth.userCooked(session["user"]):
-        return render_template("home.html") #change to home.html
-    return render_template("login.html")
+    return render_template("newStory.html")
+
+@runHtml.route("/updatestory", methods=['POST'])
+def update():
+    print request.form["update"]
+    return "<center>Update success! <br><br> Following update added: " + request.form["update"] +"</center>"
 
 #--------------------------------
 @runHtml.route("/logout")
