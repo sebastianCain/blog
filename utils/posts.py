@@ -139,7 +139,7 @@ def getStoryInfo(id):
     canUpdate = True
 
     for update in updates:
-        if update[1] = session["user"]:
+        if update[1] == session["user"]:
             canUpdate = False
         
     cursor.execute("SELECT title,isOpen from stories WHERE storyID=%d" % (id))
