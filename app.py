@@ -48,16 +48,12 @@ def registerauth():
         return redirect("/")
     return redirect("/")
 
-if __name__ == "__main__":
-    app.debug = True
-    app.run()
-
 #------------------------------------------
 @app.route("/feed")
 
 def feed():
     data = posts.getFeedData(session["user"])
-    return render_template("home.html", data)
+    return render_template("home.html", data, user=session["user"])
 
 #------------------------------------------
 @app.route("/contributed")
@@ -74,13 +70,17 @@ def viewstory():
     return render_template("viewstory.html")
 
 #------------------------------------------
-@app.route("newstory")
+@app.route("/newstory")
 
 def newstory():
     return render_template("newstory.html")
 
 #------------------------------------------
-@app.route("updatestory")
+@app.route("/updatestory")
 
 def updatestory():
     return render_template("updatestory.html")
+
+if __name__ == "__main__":
+    app.debug = True
+    app.run()
