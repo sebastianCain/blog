@@ -1,3 +1,4 @@
+from flask import session
 import sqlite3
 
 db = sqlite3.connect("data/story.db")
