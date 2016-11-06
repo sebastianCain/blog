@@ -6,12 +6,18 @@ from utils import auth
 runHtml = Flask(__name__)
 runHtml.secret_key = os.urandom(32)
 
+data=[]
+for x in range(0,20):
+    dict={'title': x, 'text':"something"+str(x), 'storyID':x}
+    data.append(dict)
+    print dict
+
 #----------------------------------
 @runHtml.route("/")
 
 def root():
     if session and auth.userCooked(session["user"]):
-        return render_template("welcome.html") #change to home.html
+        return render_template("home.html") #change to home.html
     return render_template("login.html")
 
 #--------------------------------
@@ -31,7 +37,7 @@ def login():
     
     if auth.authenticate(user, passwd):
         session["user"] = user
-        return redirect("/feed")
+        return render_template("home.html",data=data)
     return redirect("/") #something to show the failure maybe but it shows login
 
 #-----------------------------------------

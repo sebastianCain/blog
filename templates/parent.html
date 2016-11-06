@@ -36,6 +36,7 @@ div.content {
     padding: 15px;
     top: 5%;
     left: 25%;
+    overflow-y:scroll;
 }
 
 table.content {
@@ -54,13 +55,10 @@ tr.content:nth-child(even){ background-color: #bfbfbf }
 
 </style>
 
-<a href={{ profile }}>
 <div class="user">
 {% block user %}
 {% endblock %}
 </div>
-</a>
-
 
 <div class="content">
 {% block content %}
