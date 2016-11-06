@@ -18,7 +18,7 @@ def authenticate(username,password):
     db = sqlite3.connect(f)
     c = db.cursor()
     #sees if there is a corresponding username in users
-    q = "SELECT username,password FROM users WHERE username = %s" % (username)
+    q = "SELECT username,password FROM users WHERE username = \"%s\"" % (username)
     a = c.execute(q)
     b = c.fetchone()
     if b != None:
