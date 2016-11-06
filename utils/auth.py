@@ -39,7 +39,7 @@ def addUser(username,password):
     db = sqlite3.connect(f)
     c = db.cursor()
     #checks if user already exists
-    c.execute("SELECT username FROM users WHERE username = %s" % (username))
+    c.execute("SELECT username FROM users WHERE username = \"%s\"" % (username))
     a = c.fetchall()
     if len(a) > 0:
         db.close()
