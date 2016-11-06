@@ -8,7 +8,7 @@ def addStory(user,name,text):
 
     #print("adding story..")
     
-    q = "SELECT storyName from openedPages WHERE storyName=\"%s\"" % (name)
+    q = "SELECT title from stories WHERE title=\"%s\"" % (name)
     c.execute(q)
     x = c.fetchall()
     #print(x)
@@ -25,7 +25,7 @@ def addStory(user,name,text):
     q = "INSERT INTO updates VALUES (%d, \"%s\", %d, \"%s\");" % (bId+1, user, 0, text)
     #print(q)
     c.execute(q)
-    q = "INSERT INTO openedPages VALUES (%d, \"%s\", %r);" % (bId+1, name, 0)
+    q = "INSERT INTO stories VALUES (%d, \"%s\", %r);" % (bId+1, name, 0)
     c.execute(q)
     db.commit()
     db.close()

@@ -43,7 +43,7 @@ def getFeedData(username):
     data = []
     
     for update in recentUpdates:
-        query = "SELECT storyName FROM openedPages WHERE storyID=\"" + str(update[0]) + "\""
+        query = "SELECT title FROM stories WHERE storyID=\"" + str(update[0]) + "\""
         cursor.execute(query)
         fetch = cursor.fetchall()
         data.append({"storyID": update[0], "title": fetch[0][0], "text": update[3]})
@@ -102,7 +102,7 @@ def getContributedData(username):
     data = []
     
     for storyID in updates.keys():
-        query = "SELECT storyName FROM openedPages WHERE storyID=\"" + str(storyID) + "\""
+        query = "SELECT title FROM stories WHERE storyID=\"" + str(storyID) + "\""
         cursor.execute(query)
         fetch = cursor.fetchall()
         

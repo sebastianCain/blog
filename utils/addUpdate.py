@@ -21,7 +21,7 @@ def newUpdate(sId,user,text):
         return False   #User has a update with the same story number
 
     #ADD THE UPDATE AFTER DETERMINING UPDATE NO
-    q = "SELECT updateNo from updates WHERE storyID=%d" % (sId)
+    q = "SELECT updateNum from updates WHERE storyID=%d" % (sId)
     c.execute(q)
     numbers = c.fetchall()
     latest = 0
