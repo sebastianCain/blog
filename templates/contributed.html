@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title> Contributed </title>
+  </head>
+
+  <body>
+    <h1>Stories you have contributed to:</h1>
+    <br><br>
+    {% for dict in data}
+    <h3>{{ dict["title"] }}</h3>
+    <br>
+    {{ dict["text"] }}
+    <br><br>
+    {% endfor %}
+  </body>
+
+</html>
