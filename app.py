@@ -9,7 +9,8 @@ app.secret_key = os.urandom(32)
 
 def root():
     if session and auth.userCooked(session["user"]):
-        return render_template("home.html") #change to home.html
+        data = posts.getFeedData(session["user"])
+        return render_template("home.html", data=data, user=session["user"])
     return render_template("login.html")
 
 #--------------------------------
@@ -52,8 +53,9 @@ def registerauth():
 @app.route("/feed")
 
 def feed():
-    data = posts.getFeedData(session["user"])
-    return render_template("home.html", data=data, user=session["user"])
+    return redirect("/")
+    #data = posts.getFeedData(session["user"])
+    #return render_template("home.html", data=data, user=session["user"])
 
 #------------------------------------------
 @app.route("/contributed")
@@ -82,9 +84,9 @@ def createstory():
     n = request.form["title"]
     t = request.form["story"]
     result = newStory.addStory(u,n,t)
-    if !result:
-        return redirect("/newstory")
-    return redirect("/feed")
+    if result:
+        return redirect("/feed")
+    return redirect("/newstory")
 
 #------------------------------------------
 @app.route("/updatestory")
