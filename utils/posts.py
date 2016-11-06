@@ -1,12 +1,12 @@
 from flask import session
 import sqlite3
 
-db = sqlite3.connect("data/story.db")
-cursor = db.cursor()
 
 def getFeedData(username):
-
-    query = "SELECT * FROM updates WHERE"
+    db = sqlite3.connect("data/story.db")
+    cursor = db.cursor()
+    
+    query = "SELECT * FROM updates"
     contributedIDs = getContributedIDs(username)
     
     isFirst = True
@@ -53,6 +53,9 @@ def getFeedData(username):
     
 
 def getContributedIDs(username):
+
+    db = sqlite3.connect("data/story.db")
+    cursor = db.cursor()
     
     query = "SELECT storyID FROM updates WHERE username=\"" + username + "\""
     cursor.execute(query)

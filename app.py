@@ -53,14 +53,14 @@ def registerauth():
 
 def feed():
     data = posts.getFeedData(session["user"])
-    return render_template("home.html", data, user=session["user"])
+    return render_template("home.html", data=data, user=session["user"])
 
 #------------------------------------------
 @app.route("/contributed")
 
 def contributed():
     data = getContributedData(session["user"])
-    return render_template("contributed.html", data)
+    return render_template("contributed.html", data=data)
 
 #------------------------------------------
 @app.route("/viewstory")
