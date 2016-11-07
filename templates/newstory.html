@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<title>New Story</title>
-<center><h1> Write New Story </h1></center>
+  <title>New Story</title>
+  <center><h1> Write New Story </h1></center>
 
-<style>
-div {
+  <style>
+    div {
     position: absolute;
     top: 10%;
     left: 15%;
@@ -13,33 +13,38 @@ div {
     padding: 50px;
     background: #bfbfbf;
     font-size: 27pt;
-}
-input.title {
+    }
+    input.title {
     height: 30px;
     width: 200px;
     vertical-align: middle;
-}
-input.b {
+    }
+    input.b {
     width: 100px;
     margin-left: 20%;
     font-size: 15pt;
     padding: 6px;
-}
-.opening {
+    }
+    .opening {
     width: 400px;
     height: 200px;
     resize: none;
     vertical-align: top;
-}
-</style>
+    }
+  </style>
 
-<div>
-<form action="/createstory" method="post">
-  Story Title:<input class="title" type="text" name="title">
-  <br><br><br>
-  Opening:       <textarea class="opening" name="story" placeholder= "Start Your Story Here"></textarea>
-  <br><br><br>
-  <input class="b" type="submit" value="Create">
-</form>
-</div>
+  <div>
+    <form action="/createstory" method="post">
+      Story Title:<input class="title" type="text" name="title">
+      <br><br><br>
+      Opening:       <textarea class="opening" name="story" placeholder= "Start Your Story Here"></textarea>
+      <br><br><br>
+      <input class="b" type="submit" value="Create">
+    </form>
+  </div>
+
+  <form action="/" method=["POST","GET"]>
+    <input type="submit" value="BACK">
+  </form>
+  
 </html>
