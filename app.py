@@ -51,6 +51,11 @@ def register():
 def registerauth():
     user = request.form["user"]
     passw = request.form["pass"]
+    confirm = request.form["cpass"]
+    if (user == "") or (passw == ""):
+        return redirect ("/register")
+    if (passw != confirm):
+        return render_template("register.html", msg="Password confirmation failed.  Try again:")
     if (auth.addUser(user,passw) == 2):
         return render_template("login.html", msg="Successfully registered! Sign in here:")
     return render_template("register.html", msg="Username is already taken. Try again:")
