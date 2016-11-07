@@ -12,6 +12,9 @@ Sebastian Cain
 
 Yuki Chen
      -Create basic structure for login and register html files
+     
+Jordan Chan
+     -Aided in creating login and register pages
 
 ##11/01/16
 
@@ -24,6 +27,9 @@ Sebastian Cain
 Yuki Chen
      -Create basic structure for home html with css
 
+Jordan Chan
+     -Created error messages for login and register authentification
+
 ##11/02/16
 
 Billy Wong
@@ -32,6 +38,9 @@ Billy Wong
 
 Sebastian Cain
       -Customized paths to send parameters
+      
+Jordan Chan
+      -Created buttons for ease of navigation
 
 ##11/03/16
 
@@ -41,11 +50,17 @@ Billy Wong
 
 Sebastian Cain
       -Created posts.py to grab posts from SQL and insert into template
+      
+Jordan Chan
+      -Finalized plan for utilizing and accessing databases
 
 ##11/04/16
 
 Sebastian Cain
       -Continued working on posts.py
+      
+Jordan Chan
+      -Created page for user's contributions and feed
 
 ##11/05/16
 
@@ -63,3 +78,7 @@ Sebastian Cain
       -Finished posts.py functionality
       -Edited app.py and posts.py routes to pass data in arrays of dicts instead of 2d arrays
       -Tested and debugged all aspects of product
+      
+Jordan Chan
+      -Created various test cases for robustification
+      -Various bug fixes
