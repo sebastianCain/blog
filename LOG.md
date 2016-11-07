@@ -46,3 +46,10 @@ Sebastian Cain
 
 Sebastian Cain
       -Continued working on posts.py
+
+##11/06/16
+
+Sebastian Cain
+      -Finished posts.py functionality
+      -Edited app.py and posts.py routes to pass data in arrays of dicts instead of 2d arrays
+      -Tested and debugged all aspects of product
