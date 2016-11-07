@@ -53,14 +53,9 @@ input.update {
 </style>
 
 <div class="content">
-<table class="content">
-  {% for d in data %}
-  <tr class="content">
-    <td class="content" width="15%"> {{d["contributor"]}} </td>
-    <td class="content"> {{d["update"]}} </td>
-  </tr>
-  {% endfor %}
-</table>
+
+  <h2>{{data["title"]}}</h2><br>
+  <p> Most Recent Update:<br>{{data["update"]}}</p>
 </div>
 
 <div class="update">

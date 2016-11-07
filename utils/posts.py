@@ -124,12 +124,12 @@ def getContributedData(username):
 
 
 
-def getStoryInfo(id):
+def getStoryInfo(username, id):
 
     db = sqlite3.connect("data/story.db")
     cursor = db.cursor()
     
-    data = []
+    data = {}
 
     cursor.execute("SELECT text,username from updates WHERE storyID=%d" % (id))
     updates = cursor.fetchall()
@@ -139,7 +139,7 @@ def getStoryInfo(id):
     canUpdate = True
 
     for update in updates:
-        if update[1] == session["user"]:
+        if update[1] == username:
             canUpdate = False
         
     cursor.execute("SELECT title,isOpen from stories WHERE storyID=%d" % (id))
@@ -147,9 +147,9 @@ def getStoryInfo(id):
 
     title = t[0]
 
-    data.append(title)
-    data.append(text)
-    data.append(canUpdate) 
-
+    data["title"] = title
+    data["text"] = text
+    data["canUpdate"] = canUpdate
+    
     return data
     
