@@ -33,3 +33,4 @@ addUpdate.newUpdate(4, "user4", "update1")
 
 #posts.getFeedData("user1")
 posts.getContributedData("user2")
+4

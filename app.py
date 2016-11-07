@@ -73,7 +73,7 @@ def viewstory():
     #grab data (title, text) here to enter into template as arg
     sid = request.form["SID"]
     data = posts.getStoryInfo(session["user"], int(sid))
-    return render_template("display.html",data=data)
+    return render_template("display.html", data = data)
 
 #------------------------------------------
 @app.route("/newstory")
