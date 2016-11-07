@@ -6,7 +6,7 @@ import sqlite3
 def newUpdate(sId,user,text):
     sId = int(sId)
     
-    if len(text) > 550:
+    if len(text) > 550 or len(text) <= 0:
         return False
     
     #SETUP

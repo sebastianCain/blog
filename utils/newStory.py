@@ -2,6 +2,9 @@ from flask import session
 import sqlite3
 
 def addStory(user,name,text):
+    if len(text) <= 0:
+        return False
+    
     f = "data/story.db"
     db = sqlite3.connect(f)
     c = db.cursor()
