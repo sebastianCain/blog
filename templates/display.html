@@ -57,7 +57,6 @@
     <p> Most Recent Update:<br><br>{{data["text"]}}</p>
   </div>
   
-  {% if data["canUpdate"] %}
   <div class="update">
     Write New Update
     <form action="/updatestory" method="POST">
@@ -66,7 +65,6 @@
       <input type="submit" class="update" value="Update">
     </form>
   </div>
-  {% endif %}
 
   <form action="/" method=["POST","GET"]>
     <input type="submit" value="BACK">

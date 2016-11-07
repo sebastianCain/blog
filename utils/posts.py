@@ -157,7 +157,6 @@ def getStoryInfo(username, ide):
     #throw info for story into one dict
     data["title"] = title
     data["text"] = text
-    data["canUpdate"] = canUpdate
     
     return data
     
