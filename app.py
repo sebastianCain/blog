@@ -64,22 +64,26 @@ def feed():
     #return render_template("home.html", data=data, user=session["user"])
 
 #------------------------------------------
-@app.route("/contributed", methods=['POST'])
+@app.route("/contributed",methods=['POST','GET'])
 
 
 #WRONG TEMPLATE ROUTE
 def contributed():
-    data = posts.getContributedData(session["user"])
-    return render_template("display.html", data=data)
+    if session and auth.userCooked(session["user"]):
+        data = posts.getContributedData(session["user"])
+        return render_template("contributed.html", data=data)
+    return redirect("/")
 
 #------------------------------------------
 @app.route("/viewstory", methods=['POST'])
 
 def viewstory():
     #grab data (title, text) here to enter into template as arg
-    sid = request.form["SID"]
-    data = posts.getStoryInfo(session["user"], int(sid))
-    return render_template("display.html", data = data)
+    if session and auth.userCooked(session["user"]):
+        sid = request.form["SID"]
+        data = posts.getStoryInfo(session["user"], int(sid))
+        return render_template("display.html", data = data, sid = sid)
+    return redirect("/")
 
 #------------------------------------------
 @app.route("/newstory")
@@ -90,19 +94,25 @@ def newstory():
 @app.route("/createstory",methods=['POST'])
 
 def createstory():
-    u = session["user"]
-    n = request.form["title"]
-    t = request.form["story"]
-    result = newStory.addStory(u,n,t)
-    if result:
-        return redirect("/feed")
-    return redirect("/newstory")
+    if session and auth.userCooked(session["user"]):
+        u = session["user"]
+        n = request.form["title"]
+        t = request.form["story"]
+        result = newStory.addStory(u,n,t)
+        if result:
+            return redirect("/feed")
+        return redirect("/newstory")
+    return redirect("/")
 
 #------------------------------------------
-@app.route("/updatestory")
+@app.route("/updatestory",methods=['POST'])
 
 def updatestory():
-    return render_template("updatestory.html")
+    if session and auth.userCooked(session["user"]):
+        up = request.form["update"]
+        sid = request.form["id"]
+        addUpdate.newUpdate(sid,session["user"],up)
+    return redirect("/")
 
 if __name__ == "__main__":
     app.debug = True
@@ -113,6 +123,8 @@ if __name__ == "__main__":
 
 def viewstory():
     #grab data (title, text) here to enter into template as arg
-    sid = request.form["SID"]
-    data = posts.getStoryInfo(sid)
-    return render_template("viewstory.html",data=data)
+    if session and auth.userCooked(session["user"]):
+        sid = request.form["SID"]
+        data = posts.getStoryInfo(sid)
+        return render_template("viewstory.html",data=data)
+    return redirect("/")

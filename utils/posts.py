@@ -10,7 +10,7 @@ def getFeedData(username):
     contributedIDs = getContributedIDs(username)
     
     isFirst = True
-    
+
     if contributedIDs:
         query += "WHERE"
     
@@ -79,6 +79,10 @@ def getContributedData(username):
     
     query = "SELECT * FROM updates WHERE"
     contributedIDs = getContributedIDs(username)
+
+    if len(contributedIDs) <= 0:
+        data = []
+        return data
     
     isFirst = True
     for i in contributedIDs:

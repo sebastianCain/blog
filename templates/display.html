@@ -62,7 +62,8 @@ input.update {
 <div class="update">
 Write New Update
 <form action="/updatestory" method="POST">
-  <textarea name="update" rows="8" cols="100" maxlength="155" placeholder="Enter your update here"></textarea>
+  <textarea name="update" rows="8" cols="100" maxlength="500" placeholder="Enter your update here"></textarea>
+  <input type="hidden" name="id" value={{sid}}>
   <input type="submit" class="update" value="Update">
 </form>
 </div>

@@ -8,10 +8,10 @@
   <body>
     <h1>Stories you have contributed to:</h1>
     <br><br>
-    {% for dict in data}
+    {% for dict in data %}
     <h3>{{ dict["title"] }}</h3>
     <br>
-    {{ dict["text"] }}
+    {{ dict["text"] | safe }}
     <br><br>
     {% endfor %}
   </body>
