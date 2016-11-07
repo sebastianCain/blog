@@ -1,19 +1,50 @@
 <!DOCTYPE html>
 <html>
 
+<style>
+div {
+    background: #e6e6e6;
+    font-size: 15pt;
+    position: fixed;
+    width: 75%;
+    height: 75%;
+    padding: 25px;
+    top: 9%;
+    left: 10%;
+    overflow-y: scroll;
+}
+
+table.content  {
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td {
+    padding: 15px;
+}
+
+tr.content:nth-child(even) {
+    background-color: #bfbfbf;
+}
+
+</style>
   <head>
     <title> Contributed </title>
   </head>
-
   <body>
-    <h1>Stories you have contributed to:</h1>
-    <br><br>
-    {% for dict in data %}
-    <h3>{{ dict["title"] }}</h3>
-    <br>
-    {{ dict["text"] | safe }}
-    <br><br>
-    {% endfor %}
+    <center><h1>Stories you have contributed to:</h1></center>
+    <div>
+    <table class="content">
+      {% for dict in data %}
+      <tr class="content"><td>
+	  <h3>{{ dict["title"] }}</h3>
+	  {{ dict["text"] | safe }}
+	  <br>
+      </td></tr>
+      {% endfor %}
+    </table>
+    </div>
   </body>
 
 </html>
