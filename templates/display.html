@@ -55,9 +55,10 @@ input.update {
 <div class="content">
 
   <h2>{{data["title"]}}</h2><br>
-  <p> Most Recent Update:<br>{{data["update"]}}</p>
+  <p> Most Recent Update:<br>{{data["text"]}}</p>
 </div>
 
+{% if data["canUpdate"] %}
 <div class="update">
 Write New Update
 <form action="/updatestory" method="POST">
@@ -65,4 +66,6 @@ Write New Update
   <input type="submit" class="update" value="Update">
 </form>
 </div>
+{% endif %}
+
 </html>
