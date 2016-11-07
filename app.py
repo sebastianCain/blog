@@ -24,7 +24,7 @@ def root():
 
 def logout():
     session.pop("user")
-    return redirect("/")
+    return render_template("login.html", msg="Logout successful!")
 
 #----------------------------------------
 @app.route("/login", methods=['GET', 'POST'])
@@ -37,7 +37,7 @@ def login():
     if auth.authenticate(user, passwd):
         session["user"] = user
         return redirect("/feed")
-    return redirect("/") #something to show the failure maybe but it shows login
+    return render_template("login.html", msg="Username or password incorrect.  Try again")
 
 #-----------------------------------------
 @app.route("/register", methods=['GET', 'POST'])
@@ -52,8 +52,8 @@ def registerauth():
     user = request.form["user"]
     passw = request.form["pass"]
     if (auth.addUser(user,passw) == 2):
-        return redirect("/")
-    return redirect("/")
+        return render_template("login.html", msg="Successfully registered! Sign in here:")
+    return render_template("register.html", msg="Username is already taken. Try again:")
 
 #------------------------------------------
 @app.route("/feed")

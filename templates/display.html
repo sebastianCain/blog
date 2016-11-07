@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
-<title>{{title}}</title>
-<center><h2>{{title}}</h2></center>
-<style>
-
-div.content {
+  <title>{{ data["title"] }}</title>
+  <style>
+    
+    div.content {
     position: fixed;
     max-height: 70%;
     width: 75%;
@@ -13,60 +12,64 @@ div.content {
     top: 7%;
     left: 13%;
     overflow-y: scroll;
-}
-
-table.content {
+    }
+    
+    table.content {
     width: 95%;
     margin-left: auto;
     margin-right: auto;
     font-size: 15pt;
-}
-
-td.content {
+    }
+    
+    td.content {
     text-align: center;
     padding: 20px;
-}
-
-tr.content:nth-child(even) {
+    }
+    
+    tr.content:nth-child(even) {
     background-color: #bfbfbf;
-}
-
-div.update {
+    }
+    
+    div.update {
     position: fixed;
     height: 17%;
     width: 50%;
     left: 25%;
-    top: 81%;
+    top: 80%;
     background: #bfbfbf;
     text-align: center;
     font-size: 15pt;
-}
-
-input.update {
-    position: absolute;
-    right: 2%;
-    bottom: 7%;
+    }
+    
+    input.update {
+    position: fixed;
+    right: 15%;
+    bottom: 8%;
     width: 80px;
     height: 35px;
     font-size: 13pt;
-}
-</style>
+    }
+  </style>
+  
+  <div class="content">
+    
+    <h2>{{data["title"]}}</h2><br>
+    <p> Most Recent Update:<br><br>{{data["text"]}}</p>
+  </div>
+  
+  {% if data["canUpdate"] %}
+  <div class="update">
+    Write New Update
+    <form action="/updatestory" method="POST">
+      <textarea name="update" rows="8" cols="100" maxlength="500" placeholder="Enter your update here"></textarea>
+      <input type="hidden" name="id" value={{sid}}>
+      <input type="submit" class="update" value="Update">
+    </form>
+  </div>
+  {% endif %}
 
-<div class="content">
-
-  <h2>{{data["title"]}}</h2><br>
-  <p> Most Recent Update:<br>{{data["text"]}}</p>
-</div>
-
-{% if data["canUpdate"] %}
-<div class="update">
-Write New Update
-<form action="/updatestory" method="POST">
-  <textarea name="update" rows="8" cols="100" maxlength="500" placeholder="Enter your update here"></textarea>
-  <input type="hidden" name="id" value={{sid}}>
-  <input type="submit" class="update" value="Update">
-</form>
-</div>
-{% endif %}
-
+  <form action="/" method=["POST","GET"]>
+    <input type="submit" value="BACK">
+  </form>
+  
 </html>
