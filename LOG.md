@@ -47,7 +47,6 @@ Sebastian Cain
 Sebastian Cain
       -Continued working on posts.py
 
-
 ##11/05/16
 
 Billy Wong
@@ -59,3 +58,8 @@ Billy Wong
       -Wrote the get individual story update info function
       -Worked around with fixing the routing and return types
       -Various big fixes
+
+Sebastian Cain
+      -Finished posts.py functionality
+      -Edited app.py and posts.py routes to pass data in arrays of dicts instead of 2d arrays
+      -Tested and debugged all aspects of product
