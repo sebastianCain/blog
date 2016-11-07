@@ -1,8 +1,5 @@
 import sqlite3
 
-
-#need to check if user has already contributed
-
 def newUpdate(sId,user,text):
     sId = int(sId)
     
